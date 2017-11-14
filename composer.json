@@ -1,0 +1,17 @@
+{
+  "name": "sahak.avatar/frontsite",
+  "authors": [
+    {
+      "name": "Eduard",
+      "email": "edo.terakyan@gmail.com"
+    }
+  ],
+  "type": "module",
+  "route": "frontsite",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Sahakavatar\\FrontSite\\": "src/"
+    }
+  }
+}
