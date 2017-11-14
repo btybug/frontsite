@@ -1,5 +1,5 @@
 {
-  "name": "sahak.avatar/frontsite",
+  "name": "btybug/frontsite",
   "authors": [
     {
       "name": "Eduard",
@@ -11,7 +11,7 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "Sahakavatar\\FrontSite\\": "src/"
+      "Btybug\\FrontSite\\": "src/"
     }
   }
 }
