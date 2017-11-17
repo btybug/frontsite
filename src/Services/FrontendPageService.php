@@ -12,7 +12,7 @@ namespace Btybug\FrontSite\Services;
 use Illuminate\Http\Request;
 use Btybug\btybug\Services\GeneralService;
 use Btybug\Console\Repository\FrontPagesRepository;
-use Btybug\Settings\Repository\AdminsettingRepository;
+use Btybug\btybug\Repositories\AdminsettingRepository;
 use Btybug\User\Repository\PermissionRoleRepository;
 
 class FrontendPageService extends GeneralService

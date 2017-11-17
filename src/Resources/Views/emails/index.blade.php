@@ -1,4 +1,4 @@
-@extends( 'cms::layouts.mTabs', [ 'index' => 'manage_emails' ] )
+@extends( 'btybug::layouts.mTabs', [ 'index' => 'manage_emails' ] )
 @section( 'tab' )
     <div class="container-fluid p-0 m-t-10">
         <div class="col-md-3 p-l-0">
@@ -105,7 +105,7 @@
 
 
 @stop
-@include('cms::_partials.delete_modal')
+@include('btybug::_partials.delete_modal')
 @include('manage::emails._partial.datatable')
 @section( 'CSS' )
     {!!HTML::style( 'css/themes-settings.css' ) !!}

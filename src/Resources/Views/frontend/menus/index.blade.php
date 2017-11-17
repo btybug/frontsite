@@ -1,4 +1,4 @@
-@extends('cms::layouts.mTabs',['index'=>'frontend_manage'])
+@extends('btybug::layouts.mTabs',['index'=>'frontend_manage'])
 @section('tab')
     {!! HTML::style('public/css/new-store.css') !!}
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -117,7 +117,7 @@
         </div>
     </div>
 
-    @include('cms::_partials.delete_modal')
+    @include('btybug::_partials.delete_modal')
 @stop
 @section('CSS')
     {!! HTML::style('public/js/bootstrap-select/css/bootstrap-select.min.css') !!}

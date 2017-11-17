@@ -1,4 +1,4 @@
-@extends('cms::layouts.mTabs',['index'=>'manage_settings'])
+@extends('btybug::layouts.mTabs',['index'=>'manage_settings'])
 @section('tab')
     <div class="col-md-12">
         {!! Form::model($model,['class' => 'form-horizontal','files' => true,'url'=>route('post_font_site_settings_frontrnd')]) !!}

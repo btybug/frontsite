@@ -7,7 +7,7 @@
     }
   ],
   "type": "module",
-  "route": "frontsite",
+  "route": "front-site",
   "require": {},
   "autoload": {
     "psr-4": {

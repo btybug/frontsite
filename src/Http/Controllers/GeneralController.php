@@ -16,7 +16,7 @@ use File;
 use Illuminate\Http\Request;
 use Btybug\btybug\Helpers\dbhelper;
 use Btybug\btybug\Helpers\helpers;
-use Btybug\Settings\Repository\AdminsettingRepository as Settings;
+use Btybug\btybug\Repositories\AdminsettingRepository as Settings;
 
 /**
  * Class SettingsController

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Response;
 use Btybug\btybug\Helpers\helpers;
 use Btybug\FrontSite\Models\FrontendPage;
-use Btybug\Settings\Models\Settings;
+use Btybug\btybug\Models\Settings;
 use Btybug\User\User;
 use Validator;
 use View;

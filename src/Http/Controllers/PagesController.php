@@ -25,7 +25,7 @@ use Btybug\FrontSite\Repository\ClassifierRepository;
 use Btybug\FrontSite\Services\ClassifierService;
 use Btybug\FrontSite\Services\FrontendPageService;
 use Btybug\Modules\Models\Fields;
-use Btybug\Settings\Models\Settings;
+use Btybug\btybug\Models\Settings;
 use Btybug\User\Services\RoleService;
 use Btybug\User\Services\UserService;
 use Validator;
@@ -544,7 +544,7 @@ class PagesController extends Controller
         $page->page_layout = $session[$id]['page_layout'];
         $page->header = $session[$id]['header'];
         $page->footer = $session[$id]['footer'];
-        return view('cms::front_pages', compact(['settings', 'page']));
+        return view('btybug::front_pages', compact(['settings', 'page']));
 
     }
 

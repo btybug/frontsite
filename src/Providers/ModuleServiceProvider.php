@@ -95,7 +95,7 @@ class ModuleServiceProvider extends ServiceProvider
         ];
         \Eventy::action('my.tab', $tubs);
         
-        \Btybug\btybug\Models\Routes::registerPages('sahak.avatar/manage');
+      //  \Btybug\btybug\Models\Routes::registerPages('sahak.avatar/manage');
 
     }
 

@@ -1,4 +1,4 @@
-@extends('cms::layouts.mTabs',['index'=>'manage_settings'])
+@extends('btybug::layouts.mTabs',['index'=>'manage_settings'])
 @section('tab')
 
     <div class="row">
@@ -20,7 +20,8 @@
                 <div id="collapseLink1" class="panel-collapse collapse in" role="tabpanel"
                      aria-labelledby="headingLink">
                     <div class="panel-body panel_body panel_1 show">
-                        {!! Form::open(['route' => 'system.store','role' => 'form', 'class'=>'config-form ']) !!}
+                        {{--'route' => 'system.store',--}}
+                        {!! Form::open(['role' => 'form', 'class'=>'config-form ']) !!}
                         @include('manage::system._login_form')
                         {!! Form::close() !!}
                     </div>
@@ -44,7 +45,8 @@
                 <div id="collapseLink2" class="panel-collapse collapse in" role="tabpanel"
                      aria-labelledby="headingLink">
                     <div class="panel-body panel_body panel_1 show">
-                        {!! Form::open(['role' => 'form', 'class'=>'config-form ']) !!}
+                        {{--'role' => 'form',--}}
+                        {!! Form::open(['class'=>'config-form ']) !!}
                         @include('manage::system._system_form')
                         {!! Form::close() !!}
                     </div>

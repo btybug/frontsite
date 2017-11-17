@@ -4,7 +4,7 @@ namespace Btybug\FrontSite\Services;
 
 use Btybug\btybug\Services\GeneralService;
 use Btybug\Framework\Repository\VersionsRepository;
-use Btybug\Settings\Repository\AdminsettingRepository;
+use Btybug\btybug\Repositories\AdminsettingRepository;
 
 /**
  * Class ThemeService

@@ -17,8 +17,8 @@ use Illuminate\Http\Request;
 use Btybug\btybug\Helpers\helpers;
 use Btybug\btybug\Helpers\MainHelper as Helper;
 use Btybug\FrontSite\Services\SettingsService;
-use Btybug\Settings\Repository\AdminsettingRepository as Settings;
-use Btybug\Settings\Repository\AdminsettingRepository;
+use Btybug\btybug\Repositories\AdminsettingRepository as Settings;
+use Btybug\btybug\Repositories\AdminsettingRepository;
 use Btybug\FrontSite\Repository\VersionsRepository;
 use Validator;
 
