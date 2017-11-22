@@ -48,18 +48,19 @@ class MenusController extends Controller
         return \Response::json(['success' => $success, 'url' => url('admin/console/structure/menus')]);
     }
 
-    public function getEdit($id, MenuRepository $menuRepository, FrontPagesRepository $frontPagesRepository, RoleRepository $roleRepository, StructureService $structureService)
+    public function getEdit(
+        $id,
+        MenuRepository $menuRepository,
+        FrontPagesRepository $frontPagesRepository
+    )
     {
         $menu = $menuRepository->findOrFail($id);
-        $page = $frontPagesRepository->first();
         $pageGrouped = $frontPagesRepository->getGroupedWithModule();
-//        $data = $structureService->getMenuItems($menu, $role);
-
-        return view('manage::frontend.menus.edit', compact(['page', 'menu','pageGrouped']));
+        return view('manage::frontend.menus.edit', compact(['menu','pageGrouped']));
     }
 
     public function postEdit(
-        $id, $slug,
+        $id,
         MenuEditRequest $request,
         StructureService $structureService,
         MenuRepository $menuRepository,
@@ -67,9 +68,8 @@ class MenusController extends Controller
     )
     {
         $menu = $menuRepository->find($id);
-        $role = $roleRepository->findBy('slug', $slug);
-        $structureService->editMenu($menu, $role, $request);
+        $structureService->saveMenu($menu, $request);
 
-        return redirect()->to('admin/console/structure/menus');
+        return redirect()->to('admin/front-site/structure/menus');
     }
 }

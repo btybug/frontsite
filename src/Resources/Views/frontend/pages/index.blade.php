@@ -1,69 +1,20 @@
 @extends('btybug::layouts.mTabs',['index'=>'frontend_manage'])
 @section('tab')
-    <div class="m-b-20 col-md-3 m-l-20">
-        {!! Form::select('type',['core' => 'Core','plugin' => "Module",'custom' => 'Custom','classify' => 'Classify','tags' => 'Tags'],$type,['class' => 'form-control select-type']) !!}
+    <div class="row m-t-15">
+        <div class="col-md-6">
+            {!! Form::text('search',null,['class' => 'form-control search-pages','placeholder' => 'Search page ...']) !!}
+        </div>
+        <div class="col-md-6">
+            {!! Form::open(['url' => "/admin/front-site/structure/front-pages/new"]) !!}
+            {{ Form::button('<i class="fa fa-plus" aria-hidden="true"></i> New Page', array('type' => 'submit', 'class' => 'pull-right create_new_btn m-l-20')) }}
+            {!! Form::close() !!}
+        </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <article>
-            @if($page && $page->type == "custom")
-                <div class="m-b-10">
-
-                    {!! Form::open(['url' => "/admin/manage/structure/front-pages/pages/new"]) !!}
-                    {{ Form::button('<i class="fa fa-plus" aria-hidden="true"></i> New Page', array('type' => 'submit', 'class' => 'create_new_btn m-l-20')) }}
-                    {!! Form::close() !!}
-                </div>
-            @endif
-            {{--<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">--}}
-            {{--@if(count($pages))--}}
-            {{--@if($type == 'classify')--}}
             <div class="col-md-8 col-md-offset-2">
                 {!! hierarchyAdminPagesListFull($pages) !!}
             </div>
-            {{--@else--}}
-            {{--@foreach($pages as $p)--}}
-            {{--<li class="panel panel-default page_col">--}}
-            {{--@if(isset($_GET['p']) && $_GET['p'] == $p->id)--}}
-            {{--<div class="panel-heading" style="background-color: black;color:white;" role="tab"--}}
-            {{--id="headingOne">--}}
-            {{--@else--}}
-            {{--@if($loop->first == $p->id && ! isset($_GET['p']))--}}
-            {{--<div class="panel-heading" style="background-color: black;color:white;"--}}
-            {{--role="tab" id="headingOne">--}}
-            {{--@else--}}
-            {{--<div class="panel-heading" role="tab" id="headingOne">--}}
-            {{--@endif--}}
-            {{--@endif--}}
-
-            {{--<h4 class="panel-title">--}}
-            {{--<a href="?type={{ $type }}&p={{ $p->id }}"--}}
-            {{--aria-expanded="true"--}}
-            {{--class="link_name">--}}
-            {{--{{ $p->title }}--}}
-            {{--</a>--}}
-            {{--</h4>--}}
-            {{--</div>--}}
-            {{--</li>--}}
-            {{--@endforeach--}}
-            {{--@endif--}}
-            {{--@else--}}
-            {{--<li class="panel panel-default page_col">--}}
-            {{--<div class="panel-heading" role="tab" id="headingOne">--}}
-            {{--<h4 class="panel-title">--}}
-            {{--<a data-toggle="collapse" href="#" aria-expanded="true" aria-controls="collapseOne"--}}
-            {{--class="link_name collapsed">--}}
-            {{--No Pages--}}
-            {{--</a>--}}
-            {{--</h4>--}}
-            {{--</div>--}}
-            {{--</li>--}}
-            {{--@endif--}}
-            {{--</div>--}}
-
-            {{--<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 buttons page-data">--}}
-            {{--                @include('manage::frontend.pages._partials.page-data')--}}
-
-            {{--</div>--}}
-
         </article>
     </div>
 
@@ -108,7 +59,7 @@
             });
             $("body").on('change', '.select-type', function () {
                 var value = $(this).val();
-                window.location.href = "/admin/manage/structure/front-pages?type=" + value;
+                window.location.href = "/admin/front-site/structure/front-pages";
             });
 
             $('.classify-options').select2({
@@ -181,7 +132,7 @@
             $("body").on('change', '[name="user_id"]', function () {
                 var id = $(this).val();
                 $.ajax({
-                    url: '/admin/manage/structure/front-pages/user-avatar',
+                    url: '/admin/front-site/structure/front-pages/user-avatar',
                     data: {id: id},
                     type: 'POST',
                     headers: {

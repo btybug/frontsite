@@ -94,8 +94,38 @@ class ModuleServiceProvider extends ServiceProvider
             ]
         ];
         \Eventy::action('my.tab', $tubs);
-        
-      //  \Btybug\btybug\Models\Routes::registerPages('sahak.avatar/manage');
+
+        \Eventy::action('admin.menus', [
+            "title" => "Front Site",
+            "custom-link" => "#",
+            "icon" => "fa fa-hand-lizard-o",
+            "is_core" => "yes",
+            "children" => [
+                [
+                    "title" => "Structure",
+                    "custom-link" => "/admin/front-site/structure",
+                    "icon" => "fa fa-angle-right",
+                    "is_core" => "yes"
+                ], [
+                    "title" => "Settings",
+                    "custom-link" => "/admin/front-site/settings",
+                    "icon" => "fa fa-cog",
+                    "is_core" => "yes"
+                ], [
+                    "title" => "Events",
+                    "custom-link" => "/admin/front-site/event",
+                    "icon" => "fa fa-angle-right",
+                    "is_core" => "yes"
+                ], [
+                    "title" => "Emails",
+                    "custom-link" => "/admin/front-site/emails",
+                    "icon" => "fa fa-angle-right",
+                    "is_core" => "yes"
+                ]
+            ]
+        ]);
+
+        //  \Btybug\btybug\Models\Routes::registerPages('sahak.avatar/manage');
 
     }
 

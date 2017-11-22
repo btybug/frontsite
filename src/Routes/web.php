@@ -99,6 +99,7 @@ Route::group(['prefix'=>'structure'], function () {
         Route::get('/', 'MenusController@getIndex',true);
 //        Route::get('/edit', 'MenusController@getEdit');
         Route::get('/edit/{id}', 'MenusController@getEdit',true)->name('edit_front_menu');
+        Route::post('/edit/{id}', 'MenusController@postEdit',true)->name('post_edit_front_menu');
         Route::post('/create', 'MenusController@postCreate');
         Route::get('/update/{id}', 'MenusController@getUpdate');
         Route::post('/update', 'MenusController@postUpdate');

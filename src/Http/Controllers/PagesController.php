@@ -71,34 +71,14 @@ class PagesController extends Controller
     public function getIndex(
         Request $request,
         FrontPagesRepository $frontPagesRepository,
-        UserService $userService,
-        ClassifierRepository $classifierRepository
+        UserService $userService
     )
     {
-        $pageID = $request->get('p');
         $type = $request->get('type', 'core');
-        $tags = [];
-        $classifierPageRelations = [];
-        $pages = $frontPagesRepository->findAllByMultiple([
-            'type' => $type,
-            'parent_id' => NULL
-        ]);
-
-        if ($pageID) {
-            $page = $frontPagesRepository->find($pageID);
-        } else {
-            $page = $frontPagesRepository->findBy('type', $type);
-        }
-
-        if ($page && !$page->page_section) $page->page_section = 0;
+        $pages = $frontPagesRepository->getGroupedWithModule();
 
         $admins = $userService->getAdmins()->pluck('username', 'id')->toArray();
-        $classifies = $classifierRepository->getAll();
-//        if ($page) $classifierPageRelations = ClassifierItemPage::where('front_page_id', $page->id)->groupBy('classifier_id')->get();
-
-        if ($page) $tags = $page->tags;
-
-        return view('manage::frontend.pages.index', compact(['page', 'pages', 'admins', 'classifies', 'tags', 'type', 'classifierPageRelations']));
+        return view('manage::frontend.pages.index', compact(['page', 'pages', 'admins', 'tags', 'type', 'classifierPageRelations']));
     }
 
     public function getSettings(
@@ -202,7 +182,7 @@ class PagesController extends Controller
     )
     {
         $new = $frontendPageService->addNewPage();
-        if ($new) return redirect()->to('/admin/manage/structure/front-pages' . '?type=custom')->with('message', 'Congratulations: New Page Created Successfully');
+        if ($new) return redirect()->back()->with('message', 'Congratulations: New Page Created Successfully');
 
         return redirect()->back()->with('message', 'Page not Created');
     }
